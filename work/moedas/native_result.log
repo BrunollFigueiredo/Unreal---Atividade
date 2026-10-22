@@ -1,0 +1,91 @@
+Imported=18 Errors=0 Warnings=0 Status=3
+Coletar : Event ActorBeginOverlap
+  OutputDelegate links=0 orphan=0
+  then links=1 orphan=0
+  OtherActor links=1 orphan=0
+Jogador : Get Player Pawn
+  self links=0 orphan=0
+  WorldContextObject links=0 orphan=0
+  PlayerIndex links=0 orphan=0
+  ReturnValue links=1 orphan=0
+SomenteJogador : Equal (Object)
+  self links=0 orphan=0
+  A links=1 orphan=0
+  B links=1 orphan=0
+  ReturnValue links=1 orphan=0
+EhJogador : Branch
+  execute links=1 orphan=0
+  Condition links=1 orphan=0
+  then links=1 orphan=0
+  else links=0 orphan=0
+TravaColeta : Get JaColetada
+  JaColetada links=1 orphan=0
+  self links=0 orphan=0
+EvitarDuplicacao : Branch
+  execute links=1 orphan=0
+  Condition links=1 orphan=0
+  then links=0 orphan=0
+  else links=1 orphan=0
+ContadorSessao : Get Game Instance
+  self links=0 orphan=0
+  WorldContextObject links=0 orphan=0
+  ReturnValue links=1 orphan=0
+AcessarContador : Cast To BP_ContadorMoedas
+  execute links=1 orphan=0
+  then links=1 orphan=0
+  CastFailed links=0 orphan=0
+  Object links=1 orphan=0
+  AsBP Contador Moedas links=2 orphan=0
+  bSuccess links=0 orphan=0
+MarcarColetada : Set JaColetada
+  execute links=1 orphan=0
+  then links=1 orphan=0
+  JaColetada links=0 orphan=0
+  Output_Get links=0 orphan=0
+  self links=0 orphan=0
+ValorDaMoeda : Get ValorMoeda
+  ValorMoeda links=1 orphan=0
+  self links=0 orphan=0
+ValorPositivo : Max (Integer)
+  self links=0 orphan=0
+  A links=1 orphan=0
+  B links=0 orphan=0
+  ReturnValue links=1 orphan=0
+TotalAtual : Get TotalMoedas
+  TotalMoedas links=1 orphan=0
+  self links=1 orphan=0
+SomarMoedas : int + int
+  self links=0 orphan=0
+  A links=1 orphan=0
+  B links=1 orphan=0
+  ReturnValue links=1 orphan=0
+AtualizarTotal : Set TotalMoedas
+  execute links=1 orphan=0
+  then links=1 orphan=0
+  TotalMoedas links=1 orphan=0
+  Output_Get links=1 orphan=0
+  self links=1 orphan=0
+TotalComoTexto : To String (Integer)
+  self links=0 orphan=0
+  InInt links=1 orphan=0
+  ReturnValue links=1 orphan=0
+TextoContador : Append
+  self links=0 orphan=0
+  A links=0 orphan=0
+  B links=1 orphan=0
+  ReturnValue links=1 orphan=0
+MostrarTotal : Print String
+  execute links=1 orphan=0
+  then links=1 orphan=0
+  self links=0 orphan=0
+  WorldContextObject links=0 orphan=0
+  InString links=1 orphan=0
+  bPrintToScreen links=0 orphan=0
+  bPrintToLog links=0 orphan=0
+  TextColor links=0 orphan=0
+  Duration links=0 orphan=0
+  Key links=0 orphan=0
+Desaparecer : Destroy Actor
+  execute links=1 orphan=0
+  then links=0 orphan=0
+  self links=0 orphan=0

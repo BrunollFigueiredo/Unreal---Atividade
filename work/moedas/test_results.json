@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "contador inicia zerado",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "cinco moedas na demonstracao",
+      "passed": true,
+      "detail": "5"
+    },
+    {
+      "name": "outro pawn nao coleta",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "moeda gira",
+      "passed": true,
+      "detail": "179.99999999999991"
+    },
+    {
+      "name": "coleta 1",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "moeda desaparece 1",
+      "passed": true,
+      "detail": "4"
+    },
+    {
+      "name": "coleta 2",
+      "passed": true,
+      "detail": "2"
+    },
+    {
+      "name": "moeda desaparece 2",
+      "passed": true,
+      "detail": "3"
+    },
+    {
+      "name": "coleta 3",
+      "passed": true,
+      "detail": "3"
+    },
+    {
+      "name": "moeda desaparece 3",
+      "passed": true,
+      "detail": "2"
+    },
+    {
+      "name": "coleta 4",
+      "passed": true,
+      "detail": "4"
+    },
+    {
+      "name": "moeda desaparece 4",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "name": "coleta 5",
+      "passed": true,
+      "detail": "9"
+    },
+    {
+      "name": "moeda desaparece 5",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "sem soma duplicada",
+      "passed": true,
+      "detail": "9"
+    }
+  ]
+}

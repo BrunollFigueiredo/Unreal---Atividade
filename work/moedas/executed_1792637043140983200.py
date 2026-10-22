@@ -1,0 +1,1 @@
+unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level(); unreal.EditorAssetLibrary.save_directory('/Game/Moedas'); report('SAVED_FOR_DELIVERY'); unreal.SystemLibrary.quit_editor()

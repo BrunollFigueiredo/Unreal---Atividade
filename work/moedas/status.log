@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "C:/Users/Bruno/Unreal---Atividade 5.7/work/moedas/editor_moedas.py", line 74, in <module>
+    setup()
+  File "C:/Users/Bruno/Unreal---Atividade 5.7/work/moedas/editor_moedas.py", line 38, in setup
+    sphere.set_collision_response_to_all_channels(unreal.CollisionResponse.IGNORE)
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'CollisionResponse' has no attribute 'IGNORE'
+
+Traceback (most recent call last):
+  File "<string>", line 74, in <module>
+  File "<string>", line 38, in setup
+AttributeError: type object 'CollisionResponse' has no attribute 'ECR_IGNORE'
+
+GRAPH API ['AnimGraphNodeBinding', 'AnimGraphNodeCustomizationInterface', 'AnimGraphNode_AimOffsetLookAt', 'AnimGraphNode_AnimDynamics', 'AnimGraphNode_ApplyAdditive', 'AnimGraphNode_ApplyLimits', 'AnimGraphNode_ApplyMeshSpaceAdditive', 'AnimGraphNode_AssetPlayerBase', 'AnimGraphNode_Base', 'AnimGraphNode_BlendBoneByChannel', 'AnimGraphNode_BlendListBase', 'AnimGraphNode_BlendListByBool', 'AnimGraphNode_BlendListByEnum', 'AnimGraphNode_BlendListByInt', 'AnimGraphNode_BlendSpace', 'AnimGraphNode_BlendSpaceBase', 'AnimGraphNode_BlendSpaceEvaluator', 'AnimGraphNode_BlendSpaceGraph', 'AnimGraphNode_BlendSpaceGraphBase', 'AnimGraphNode_BlendSpacePlayer', 'AnimGraphNode_BlendSpaceSampleResult', 'AnimGraphNode_BoneDrivenController', 'AnimGraphNode_CCDIK', 'AnimGraphNode_CallFunction', 'AnimGraphNode_ComponentToLocalSpace', 'AnimGraphNode_Constraint', 'AnimGraphNode_ControlRig', 'AnimGraphNode_CopyBone', 'AnimGraphNode_CopyBoneDelta', 'AnimGraphNode_CopyPoseFromMesh', 'AnimGraphNode_CurveSource', 'AnimGraphNode_CustomProperty', 'AnimGraphNode_CustomTransitionResult', 'AnimGraphNode_DeadBlending', 'AnimGraphNode_Fabrik', 'AnimGraphNode_HandIKRetargeting', 'AnimGraphNode_IKRig', 'AnimGraphNode_IdentityPose', 'AnimGraphNode_Inertialization', 'AnimGraphNode_Layer', 'AnimGraphNode_LayeredBoneBlend', 'AnimGraphNode_LegIK', 'AnimGraphNode_LinkedAnimGraph', 'AnimGraphNode_LinkedAnimGraphBase', 'AnimGraphNode_LinkedAnimLayer', 'AnimGraphNode_LinkedInputPose', 'AnimGraphNode_LocalRefPose', 'AnimGraphNode_LocalToComponentSpace', 'AnimGraphNode_LookAt', 'AnimGraphNode_MakeDynamicAdditive', 'AnimGraphNode_MeshRefPose', 'AnimGraphNode_Mirror', 'AnimGraphNode_ModifyBone', 'AnimGraphNode_ModifyCurve', 'AnimGraphNode_MultiWayBlend', 'AnimGraphNode_ObserveBone', 'AnimGraphNode_OrientationDriver', 'AnimGraphNode_PoseBlendNode', 'AnimGraphNode_PoseByName', 'AnimGraphNode_PoseDriver', 'AnimGraphNode_PoseHandler', 'AnimGraphNode_PoseSnapshot', 'AnimGraphNode_Ragdoll', 'AnimGraphNode_RandomPlayer', 'AnimGraphNode_RefPoseBase', 'AnimGraphNode_ResetRoot', 'AnimGraphNode_RetargetPoseFromMesh', 'AnimGraphNode_RigLogic', 'AnimGraphNode_RigidBody', 'AnimGraphNode_Root', 'AnimGraphNode_RotateRootBone', 'AnimGraphNode_RotationMultiplier', 'AnimGraphNode_RotationOffsetBlendSpace', 'AnimGraphNode_RotationOffsetBlendSpaceGraph', 'AnimGraphNode_SaveCachedPose', 'AnimGraphNode_ScaleChainLength', 'AnimGraphNode_SequenceEvaluator', 'AnimGraphNode_SequencePlayer', 'AnimGraphNode_SkeletalControlBase', 'AnimGraphNode_Slot', 'AnimGraphNode_SplineIK', 'AnimGraphNode_SpringBone', 'AnimGraphNode_StateMachine', 'AnimGraphNode_StateMachineBase', 'AnimGraphNode_StateResult', 'AnimGraphNode_SubInput', 'AnimGraphNode_SubInstance', 'AnimGraphNode_SubInstanceBase', 'AnimGraphNode_Sync', 'AnimGraphNode_Trail', 'AnimGraphNode_TransitionPoseEvaluator', 'AnimGraphNode_TransitionResult', 'AnimGraphNode_TwistCorrectiveNode', 'AnimGraphNode_TwoBoneIK', 'AnimGraphNode_TwoWayBlend', 'AnimGraphNode_UseCachedPose', 'ControlRigGraphNodeContextMenuContext', 'EdGraphNode', 'InterchangeShaderGraphNode', 'K2Node', 'K2Node_CallFunction', 'K2Node_DataChannelAccessContextOperation', 'K2Node_DataChannelAccessContext_GetMembers', 'K2Node_DataChannelAccessContext_Make', 'K2Node_DataChannelAccessContext_Prepare', 'K2Node_DataChannelAccessContext_SetMembers', 'NavigationGraphNode', 'NavigationGraphNodeComponent']
+GRAPH PROPERTY nodes: EdGraph: Property 'Nodes' for attribute 'nodes' on 'EdGraph' is protected and cannot be read
+GRAPH PROPERTY schema: EdGraph: Property 'Schema' for attribute 'schema' on 'EdGraph' is protected and cannot be read
+Traceback (most recent call last):
+  File "<string>", line 83, in tick
+  File "C:\Users\Bruno\Unreal---Atividade 5.7\work\moedas\command.py", line 1, in <module>
+  File "<string>", line 73, in setup
+Exception: Blueprint: Failed to find property 'parent_class' for attribute 'parent_class' on 'Blueprint'
+
+OPENED
+Traceback (most recent call last):
+  File "<string>", line 83, in tick
+  File "C:\Users\Bruno\Unreal---Atividade 5.7\work\moedas\command.py", line 1
+    report('SETTINGS_API ' + str(hasattr(unreal, 'GameMapsSettings')))); report('SYSTEM_QUIT ' + str(hasattr(unreal.SystemLibrary, 'quit_editor'))); coin=unreal.EditorLevelLibrary.spawn_actor_from_object(unreal.load_asset('/Game/Moedas/BP_Moeda'), unreal.Vector(0,0,300)); report('COIN_COMPONENTS ' + str([(c.get_name(), c.get_class().get_name()) for c in coin.get_components_by_class(unreal.ActorComponent)])); unreal.EditorLevelLibrary.destroy_actor(coin)
+                                                                      ^
+SyntaxError: unmatched ')'
+
+SETTINGS_API True
+SYSTEM_QUIT True
+DEMO_READY
+MAP /Game/Moedas/Mapa_TesteMoedas.Mapa_TesteMoedas
+COINS [('Moeda_01', 1), ('Moeda_02', 1), ('Moeda_03', 1), ('Moeda_04', 1), ('Moeda_05', 5)]
+WATCHER_READY
+TEST contador inicia zerado: True 0
+TEST cinco moedas na demonstracao: True 5
+Traceback (most recent call last):
+  File "C:\Users\Bruno\Unreal---Atividade 5.7\work\moedas\command.py", line 35, in test_tick
+AttributeError: type object 'GameplayStatics' has no attribute 'begin_deferred_actor_spawn_from_class'
+
+TEST contador inicia zerado: True 0
+TEST cinco moedas na demonstracao: True 5
+TEST outro pawn nao coleta: True 0
+TEST moeda gira: True 179.99999999999991
+TEST coleta 1: True 1
+TEST moeda desaparece 1: True 4
+TEST coleta 2: True 2
+TEST moeda desaparece 2: True 3
+TEST coleta 3: True 3
+TEST moeda desaparece 3: True 2
+TEST coleta 4: True 4
+TEST moeda desaparece 4: True 1
+TEST coleta 5: True 9
+TEST moeda desaparece 5: True 0
+TEST sem soma duplicada: True 9
+ALL_PLAY_TESTS_PASSED
+SAVED_FOR_DELIVERY

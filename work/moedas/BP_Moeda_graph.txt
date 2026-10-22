@@ -1,0 +1,170 @@
+Begin Object Class=/Script/BlueprintGraph.K2Node_Event Name="Coletar"
+   EventReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.Actor'",MemberName="ReceiveActorBeginOverlap")
+   bOverrideFunction=True
+   NodePosX=0
+   NodePosY=0
+   NodeGuid=98CC740E347A4CFE82DFB563BEEEBE23
+   CustomProperties Pin (PinId=9A84887630EE46E1B912A054EFF8E841,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(EhJogador 31963BD16C3141528EB3EB8F6076AC9D,),)
+   CustomProperties Pin (PinId=9526AFD521544A7F9B950EFAEEFF6E55,PinName="OtherActor",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",LinkedTo=(SomenteJogador 42689AF873C64F39B376F182D475BA25,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="Jogador"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.GameplayStatics'",MemberName="GetPlayerPawn")
+   bIsPureFunc=True
+   NodePosX=0
+   NodePosY=240
+   NodeGuid=530DE7930D9C4A39A89AACB1A1E82809
+   CustomProperties Pin (PinId=1474E1978807488BB09860495CDCAC6F,PinName="PlayerIndex",PinType.PinCategory="int",DefaultValue="0",)
+   CustomProperties Pin (PinId=51B71DF257D34D94901DF16DBC93A8D2,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Pawn'",LinkedTo=(SomenteJogador 994C91B079534DA6AEDA19D049B6152D,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="SomenteJogador"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",MemberName="EqualEqual_ObjectObject")
+   bIsPureFunc=True
+   NodePosX=250
+   NodePosY=180
+   NodeGuid=5C4CFFCC36AC401582CFFD158F483823
+   CustomProperties Pin (PinId=42689AF873C64F39B376F182D475BA25,PinName="A",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/CoreUObject.Object'",LinkedTo=(Coletar 9526AFD521544A7F9B950EFAEEFF6E55,),)
+   CustomProperties Pin (PinId=994C91B079534DA6AEDA19D049B6152D,PinName="B",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/CoreUObject.Object'",LinkedTo=(Jogador 51B71DF257D34D94901DF16DBC93A8D2,),)
+   CustomProperties Pin (PinId=703C1267A99B42EFBB65F7AD089EC5C4,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="bool",LinkedTo=(EhJogador 44BC32358BE9410C9F76E667AEE3FAA8,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_IfThenElse Name="EhJogador"
+   NodePosX=520
+   NodePosY=0
+   NodeGuid=59F0BB53792F4DD0AC88A8CCD5DC6A11
+   CustomProperties Pin (PinId=31963BD16C3141528EB3EB8F6076AC9D,PinName="execute",PinType.PinCategory="exec",LinkedTo=(Coletar 9A84887630EE46E1B912A054EFF8E841,),)
+   CustomProperties Pin (PinId=44BC32358BE9410C9F76E667AEE3FAA8,PinName="Condition",PinType.PinCategory="bool",LinkedTo=(SomenteJogador 703C1267A99B42EFBB65F7AD089EC5C4,),)
+   CustomProperties Pin (PinId=B233923D210A41B296DE722C2C369915,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(EvitarDuplicacao EE8C58E17D3B4C67B6E9C06F3A57BE5D,),)
+   CustomProperties Pin (PinId=ABF16E13F9A0458E9C7B0DA07CB3A6EC,PinName="else",Direction="EGPD_Output",PinType.PinCategory="exec",)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="TravaColeta"
+   VariableReference=(MemberName="JaColetada",bSelfContext=True)
+   NodePosX=520
+   NodePosY=240
+   NodeGuid=295A11BFDD8F4A27AC8B2BD2FFE4E75B
+   CustomProperties Pin (PinId=4A079996FEEE46239C0509DAD7B2CBD1,PinName="JaColetada",Direction="EGPD_Output",PinType.PinCategory="bool",LinkedTo=(EvitarDuplicacao 4C0AF2A8C64441EFAABA70D2BDB6767E,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_IfThenElse Name="EvitarDuplicacao"
+   NodePosX=780
+   NodePosY=0
+   NodeGuid=86B9A5CF1F4C449EAFD5C44061D779F3
+   CustomProperties Pin (PinId=EE8C58E17D3B4C67B6E9C06F3A57BE5D,PinName="execute",PinType.PinCategory="exec",LinkedTo=(EhJogador B233923D210A41B296DE722C2C369915,),)
+   CustomProperties Pin (PinId=4C0AF2A8C64441EFAABA70D2BDB6767E,PinName="Condition",PinType.PinCategory="bool",LinkedTo=(TravaColeta 4A079996FEEE46239C0509DAD7B2CBD1,),)
+   CustomProperties Pin (PinId=E687843160F945CDA72B8D3DE1E0929C,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",)
+   CustomProperties Pin (PinId=692D77B3BDD546BC910E6F21B5382EA8,PinName="else",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(AcessarContador C524B918A71949D2BA780474346B11CE,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="ContadorSessao"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.GameplayStatics'",MemberName="GetGameInstance")
+   bIsPureFunc=True
+   NodePosX=780
+   NodePosY=240
+   NodeGuid=52CA7B4D87C5492EB9CD3D319F3DD817
+   CustomProperties Pin (PinId=D9F9C005122F4DDCABFC445A6A4AA5AA,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.GameInstance'",LinkedTo=(AcessarContador B7422395C832409EB56283048913B1F7,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="AcessarContador"
+   TargetType="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'"
+   bIsPureCast=False
+   NodePosX=1040
+   NodePosY=0
+   NodeGuid=962DE257894044BA9D3780E4353DF15C
+   CustomProperties Pin (PinId=C524B918A71949D2BA780474346B11CE,PinName="execute",PinType.PinCategory="exec",LinkedTo=(EvitarDuplicacao 692D77B3BDD546BC910E6F21B5382EA8,),)
+   CustomProperties Pin (PinId=B7422395C832409EB56283048913B1F7,PinName="Object",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/CoreUObject.Object'",LinkedTo=(ContadorSessao D9F9C005122F4DDCABFC445A6A4AA5AA,),)
+   CustomProperties Pin (PinId=00FC7C81FC08493EAA6AE1AFFC88B4C9,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(MarcarColetada 04AAC702CDEC4B42A2E892E379EE4B54,),)
+   CustomProperties Pin (PinId=FD3F30BDF8DA44D4A5CD864B5F52216C,PinName="CastFailed",Direction="EGPD_Output",PinType.PinCategory="exec",)
+   CustomProperties Pin (PinId=CE8B5E1CE4CC41CAABF6D35064C7158E,PinName="AsBP Contador Moedas",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'",LinkedTo=(TotalAtual ED3860EB692E4750AC8ADDB28BB43A0E,AtualizarTotal BEE7EB8AFA5A48F5859811E149EF06AA,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableSet Name="MarcarColetada"
+   VariableReference=(MemberName="JaColetada",bSelfContext=True)
+   NodePosX=1360
+   NodePosY=0
+   NodeGuid=136F25D96F7246B8B39AFB0D8D2A5731
+   CustomProperties Pin (PinId=04AAC702CDEC4B42A2E892E379EE4B54,PinName="execute",PinType.PinCategory="exec",LinkedTo=(AcessarContador 00FC7C81FC08493EAA6AE1AFFC88B4C9,),)
+   CustomProperties Pin (PinId=D7217A4484364D15AE5AE14310C1D548,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(AtualizarTotal 7387E58B7D1E4DF7902FE627B5A35A1B,),)
+   CustomProperties Pin (PinId=FFE60964A2D84A789F9598C09409BFCE,PinName="JaColetada",PinType.PinCategory="bool",DefaultValue="true",)
+   CustomProperties Pin (PinId=34CF3DF96CA44E2F8A8D4EA7730F2C6B,PinName="Output_Get",Direction="EGPD_Output",PinType.PinCategory="bool",)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="ValorDaMoeda"
+   VariableReference=(MemberName="ValorMoeda",bSelfContext=True)
+   NodePosX=1050
+   NodePosY=440
+   NodeGuid=E95AE740D81046B5AF999ADD0FE441FA
+   CustomProperties Pin (PinId=B6FA0A64E1C1417EB8A4EE3D351C3963,PinName="ValorMoeda",Direction="EGPD_Output",PinType.PinCategory="int",LinkedTo=(ValorPositivo 9FEF8445E89443AEB5DF066D19565137,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="ValorPositivo"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",MemberName="Max")
+   bIsPureFunc=True
+   NodePosX=1320
+   NodePosY=440
+   NodeGuid=3F39AC862C1E478DAD46DBC84C51E49B
+   CustomProperties Pin (PinId=9FEF8445E89443AEB5DF066D19565137,PinName="A",PinType.PinCategory="int",LinkedTo=(ValorDaMoeda B6FA0A64E1C1417EB8A4EE3D351C3963,),)
+   CustomProperties Pin (PinId=98370B26B0BE44FA8D28C343A18B1733,PinName="B",PinType.PinCategory="int",DefaultValue="1",)
+   CustomProperties Pin (PinId=EA5E2CA903C84B638ABCDA8366CB9DC0,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="int",LinkedTo=(SomarMoedas 901C51242C894140B2B3416CBD38D65D,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="TotalAtual"
+   VariableReference=(MemberParent="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'",MemberName="TotalMoedas")
+   NodePosX=1320
+   NodePosY=250
+   NodeGuid=3DEEE1819A3D4636AEB48FD13AE6F799
+   CustomProperties Pin (PinId=81FAB0E77DC64043BBBB30011345D145,PinName="TotalMoedas",Direction="EGPD_Output",PinType.PinCategory="int",LinkedTo=(SomarMoedas D625DB999FDA4BE59316553C687A1A5C,),)
+   CustomProperties Pin (PinId=ED3860EB692E4750AC8ADDB28BB43A0E,PinName="self",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'",LinkedTo=(AcessarContador CE8B5E1CE4CC41CAABF6D35064C7158E,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="SomarMoedas"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",MemberName="Add_IntInt")
+   bIsPureFunc=True
+   NodePosX=1590
+   NodePosY=270
+   NodeGuid=7317F469E5734A4F85F5DC4B0BBEAD41
+   CustomProperties Pin (PinId=D625DB999FDA4BE59316553C687A1A5C,PinName="A",PinType.PinCategory="int",LinkedTo=(TotalAtual 81FAB0E77DC64043BBBB30011345D145,),)
+   CustomProperties Pin (PinId=901C51242C894140B2B3416CBD38D65D,PinName="B",PinType.PinCategory="int",LinkedTo=(ValorPositivo EA5E2CA903C84B638ABCDA8366CB9DC0,),)
+   CustomProperties Pin (PinId=7A2B0E952C1A4C2B873BF848A958F595,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="int",LinkedTo=(AtualizarTotal C62C52E0C3524A2693D77A09C2858075,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableSet Name="AtualizarTotal"
+   VariableReference=(MemberParent="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'",MemberName="TotalMoedas")
+   NodePosX=1840
+   NodePosY=0
+   NodeGuid=93C2473EA3D047329E9F43D53151ECE0
+   CustomProperties Pin (PinId=7387E58B7D1E4DF7902FE627B5A35A1B,PinName="execute",PinType.PinCategory="exec",LinkedTo=(MarcarColetada D7217A4484364D15AE5AE14310C1D548,),)
+   CustomProperties Pin (PinId=E6EEDA959CB94784AC0C5AF0DC995958,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(MostrarTotal 4A74C8A447974B889588CCA1AFB4FC12,),)
+   CustomProperties Pin (PinId=C62C52E0C3524A2693D77A09C2858075,PinName="TotalMoedas",PinType.PinCategory="int",LinkedTo=(SomarMoedas 7A2B0E952C1A4C2B873BF848A958F595,),)
+   CustomProperties Pin (PinId=0B2B0E9B5AA6410E91F673318C3537C8,PinName="Output_Get",Direction="EGPD_Output",PinType.PinCategory="int",LinkedTo=(TotalComoTexto 92EA10FD6EE248FDA727C7DB86BAC363,),)
+   CustomProperties Pin (PinId=BEE7EB8AFA5A48F5859811E149EF06AA,PinName="self",PinType.PinCategory="object",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Moedas/BP_ContadorMoedas.BP_ContadorMoedas_C'",LinkedTo=(AcessarContador CE8B5E1CE4CC41CAABF6D35064C7158E,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="TotalComoTexto"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetStringLibrary'",MemberName="Conv_IntToString")
+   bIsPureFunc=True
+   NodePosX=2080
+   NodePosY=270
+   NodeGuid=C49767B2F7934A5B80FAA0CC61623D91
+   CustomProperties Pin (PinId=92EA10FD6EE248FDA727C7DB86BAC363,PinName="InInt",PinType.PinCategory="int",LinkedTo=(AtualizarTotal 0B2B0E9B5AA6410E91F673318C3537C8,),)
+   CustomProperties Pin (PinId=C2944C141CB34664B07A3E19BFF8FA95,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="string",LinkedTo=(TextoContador FA5D88C5A1AE4E50B2130F1E87EA52A4,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="TextoContador"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetStringLibrary'",MemberName="Concat_StrStr")
+   bIsPureFunc=True
+   NodePosX=2330
+   NodePosY=250
+   NodeGuid=5A7CBC3CB8F14FC593407291E09C56BD
+   CustomProperties Pin (PinId=3DBB1DAAFE714C74A1DAEF85792E252F,PinName="A",PinType.PinCategory="string",DefaultValue="Moedas: ",)
+   CustomProperties Pin (PinId=FA5D88C5A1AE4E50B2130F1E87EA52A4,PinName="B",PinType.PinCategory="string",LinkedTo=(TotalComoTexto C2944C141CB34664B07A3E19BFF8FA95,),)
+   CustomProperties Pin (PinId=2D9F743C1AEE4A45B649AC79A1DF7EAA,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="string",LinkedTo=(MostrarTotal 20037990F10C4135AF3CA0A05FEC0752,),)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="MostrarTotal"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetSystemLibrary'",MemberName="PrintString")
+   NodePosX=2600
+   NodePosY=0
+   NodeGuid=6F1555816F634AA69F62F200435404BA
+   CustomProperties Pin (PinId=4A74C8A447974B889588CCA1AFB4FC12,PinName="execute",PinType.PinCategory="exec",LinkedTo=(AtualizarTotal E6EEDA959CB94784AC0C5AF0DC995958,),)
+   CustomProperties Pin (PinId=7325C12127A0451B8BA02A3DF1A3DF77,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",LinkedTo=(Desaparecer 4E8F2BBB56124F70BF1F6C4AC5121CD0,),)
+   CustomProperties Pin (PinId=20037990F10C4135AF3CA0A05FEC0752,PinName="InString",PinType.PinCategory="string",LinkedTo=(TextoContador 2D9F743C1AEE4A45B649AC79A1DF7EAA,),)
+   CustomProperties Pin (PinId=12F9262DCF8F4FCD94EEA76B9FB4E7A1,PinName="bPrintToScreen",PinType.PinCategory="bool",DefaultValue="true",)
+   CustomProperties Pin (PinId=46410CFF44554753BBD90A857AEE87B2,PinName="bPrintToLog",PinType.PinCategory="bool",DefaultValue="true",)
+   CustomProperties Pin (PinId=5B4AA64F4B3B4DD48B14697E6C29262E,PinName="TextColor",PinType.PinCategory="struct",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.LinearColor'",DefaultValue="(R=1.0,G=0.8,B=0.05,A=1.0)",)
+   CustomProperties Pin (PinId=D4D569F98E754374B183105EBC37F7F7,PinName="Duration",PinType.PinCategory="real",PinType.PinSubCategory="float",DefaultValue="3.0",)
+   CustomProperties Pin (PinId=97A0AADAA046470697E525FF65B0B2BD,PinName="Key",PinType.PinCategory="name",DefaultValue="ContadorMoedas",)
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="Desaparecer"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.Actor'",MemberName="K2_DestroyActor")
+   NodePosX=2920
+   NodePosY=0
+   NodeGuid=B0948F34C33549308FFC0F46510F6B84
+   CustomProperties Pin (PinId=4E8F2BBB56124F70BF1F6C4AC5121CD0,PinName="execute",PinType.PinCategory="exec",LinkedTo=(MostrarTotal 7325C12127A0451B8BA02A3DF1A3DF77,),)
+   CustomProperties Pin (PinId=4059E55DB3554EE4B7C9B3F361747B8F,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",)
+End Object

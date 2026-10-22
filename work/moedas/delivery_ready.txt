@@ -1,0 +1,1 @@
+Assets loaded and compiled without MoedasBuilder. BP_Moeda opened. Play tests passed.

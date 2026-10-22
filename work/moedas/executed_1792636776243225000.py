@@ -1,0 +1,1 @@
+report('MAP ' + unreal.EditorLevelLibrary.get_editor_world().get_path_name()); report('COINS ' + str([(a.get_actor_label(),a.get_editor_property('ValorMoeda')) for a in unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors() if a.get_class().get_name() == 'BP_Moeda_C'])); unreal.AutomationLibrary.take_high_res_screenshot(1280,720,str(ROOT/'preview.png'))

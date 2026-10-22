@@ -1,0 +1,1 @@
+{"FileVersion":3,"Version":1,"VersionName":"1.0","FriendlyName":"Moedas Builder (editor only)","EnabledByDefault":false,"CanContainContent":false,"Modules":[{"Name":"MoedasBuilder","Type":"Editor","LoadingPhase":"PostEngineInit"}]}

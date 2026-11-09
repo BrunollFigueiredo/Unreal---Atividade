@@ -4,20 +4,21 @@ Blueprint: Content/bp_http.uasset.
 Estrutura JSON: Content/Struct_PlayerAPI.uasset (campo nome do tipo String).
 Plugins HttpBlueprint e JsonBlueprintUtilities habilitados.
 
-No mapa Untitled, o ator API_Player_Select_Insert_Delete recebe os comandos:
-- BeginPlay e G: SelectBD, GET /player/{PlayerId}, le nome e salva em NomePlayer.
-- I: InsertBD, converte a estrutura com NomePlayer em JSON, envia POST /player/insertPlayer e guarda insertId em PlayerId.
-- Delete: DeleteBD, envia DELETE /player/deletePlayer/{PlayerId}.
+No mapa Untitled, o ator API_Player_Select_Insert_Delete consulta o jogador no BeginPlay.
+Ao coletar BP_Moeda, o jogo soma o valor no contador da sessão e chama SalvarMoedasColetadas.
+O evento envia POST /player/coins/{PlayerId} com a quantidade da moeda.
+O MySQL soma o valor na coluna moedas e cria o jogador local se o ID ainda não existir.
+InsertBD e DeleteBD continuam disponíveis como eventos no Blueprint.
 
-Selecione o ator no mapa para configurar ApiBaseUrl, PlayerId e NomePlayer.
-ApiBaseUrl padrao: http://127.0.0.1:3000 (sem barra final).
-Aperte Play, clique na janela do jogo e use as teclas.
-Mensagens ficam na tela e no Output Log. Nenhuma exclusao ocorre no BeginPlay.
+Selecione o ator no mapa para configurar ApiBaseUrl e PlayerId.
+ApiBaseUrl padrão: http://127.0.0.1:3000 (sem barra final).
+Para testar, aperte Play e percorra o mapa até encostar na moeda.
 
-API: C:\Users\Bruno\API_Connect_Game.
-Dependencias instaladas. Preencha .env conforme .env.example e crie a tabela usando schema.sql.
-Execute iniciar-api.cmd. GET /health confirma a conexao com MySQL.
-O banco real depende das credenciais locais; o arquivo .env nao e versionado.
+A API está em `API_Connect_Game`, na raiz do repositório.
+Siga o README da pasta para instalar as dependências, preparar o MySQL e iniciar a API.
+O `.env.example` usa `root` como usuário e senha da atividade.
+O `.env` com as credenciais locais fica fora do Git.
+
 
 As imagens mostram GET /player ligado a um campo nome, mas essa rota retorna uma lista.
 Por isso o Blueprint consulta /player/{PlayerId}, que retorna o objeto esperado.

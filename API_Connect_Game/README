@@ -1,0 +1,20 @@
+# API Connect Game
+
+1. Abra a pasta da API e execute `npm ci` (no PowerShell do Windows, use `npm.cmd ci`).
+2. Copie `.env.example` para `.env`. O exemplo usa MySQL local na porta 3306, com usuário e senha `root`. Ajuste o arquivo se a sua instância usar outra credencial.
+3. Execute todo o `schema.sql` no MySQL Workbench. Ele cria o banco `connect_game` e prepara a coluna `moedas` também em tabelas existentes.
+4. Execute `npm start` (ou `node server.js`). A API escuta em `http://127.0.0.1:3000`. O endpoint `GET /health` deve retornar `"database":"connected"`.
+5. Abra o mapa `Untitled` na Unreal, pressione Play e encoste na moeda para gravar o valor da coleta.
+
+O exemplo `root`/`root` corresponde ao ambiente local da atividade. O `.env` está no `.gitignore`.
+
+| Método | Rota | Resultado |
+| --- | --- | --- |
+| GET | /player | Lista de jogadores |
+| GET | /player/:id | Jogador com ID, nome e total de moedas |
+| POST | /player/insertPlayer | Cria jogador com o campo JSON `nome` e retorna `insertId` |
+| PUT | /player/updatePlayer/:id | Atualiza o campo JSON `nome` |
+| DELETE | /player/deletePlayer/:id | Exclui jogador por ID |
+| POST | /player/coins/:id | Soma o campo JSON `quantidade` ao saldo. Cria o jogador local se o ID estiver ausente |
+
+Use `Content-Type: application/json` nas requisições com corpo. Execute `npm test` para rodar os testes HTTP com banco simulado.

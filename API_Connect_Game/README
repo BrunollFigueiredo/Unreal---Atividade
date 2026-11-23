@@ -17,4 +17,14 @@ O exemplo `root`/`root` corresponde ao ambiente local da atividade. O `.env` est
 | DELETE | /player/deletePlayer/:id | Exclui jogador por ID |
 | POST | /player/coins/:id | Soma o campo JSON `quantidade` ao saldo. Cria o jogador local se o ID estiver ausente |
 
+Importante: rode a API desta pasta (`Unreal---Atividade\API_Connect_Game`). A cópia em `C:\Users\bruno\API_Connect_Game` (clone do repositório original) não tem a rota `/player/coins/:id`, então a coleta falha com 404.
+
+Resposta de `POST /player/coins/:id` com `{"quantidade": 1}`. O total é relido do MySQL depois da gravação:
+
+```json
+{ "success": true, "mensagem": "Coleta registrada no banco! +1 moeda(s). Total de Jogador local no MySQL: 3", "quantidade": 1, "id": 1, "nome": "Jogador local", "moedas": 3 }
+```
+
+O terminal da API também imprime `[coleta] player 1: +1 (total 3)` a cada coleta.
+
 Use `Content-Type: application/json` nas requisições com corpo. Execute `npm test` para rodar os testes HTTP com banco simulado.

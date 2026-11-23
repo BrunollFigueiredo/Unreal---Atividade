@@ -1,0 +1,12 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "BP Text Tool (editor only)",
+	"Description": "Commandlet que exporta, importa, liga e remove nos de Blueprints a partir de um script JSON.",
+	"EnabledByDefault": false,
+	"CanContainContent": false,
+	"Modules": [
+		{ "Name": "BPTextTool", "Type": "Editor", "LoadingPhase": "Default" }
+	]
+}

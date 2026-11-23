@@ -10,6 +10,23 @@ O evento envia POST /player/coins/{PlayerId} com a quantidade da moeda.
 O MySQL soma o valor na coluna moedas e cria o jogador local se o ID ainda não existir.
 InsertBD e DeleteBD continuam disponíveis como eventos no Blueprint.
 
+## Mensagem de confirmação da coleta
+
+A API relê o MySQL depois de gravar e responde `{"success": true, "mensagem": "Coleta registrada no banco! +1 moeda(s). Total de Jogador local no MySQL: N", ...}`.
+No `bp_http`, evento `SalvarMoedasColetadas`: Load Json → Get Field `success` → Branch.
+- True: nós `ColetaLerMensagem` (Get Field `mensagem`, String) → `ColetaConfirmada` (Print String verde, 8 s).
+- False / On Error: Print "Nao foi possivel salvar as moedas." ou o corpo da resposta.
+
+Validado em Play no Editor (mapa Untitled): coleta da moeda → POST /player/coins/1 → mensagem verde na tela.
+
+## Ferramenta de edição de Blueprints
+
+`work/bptool/BPTextTool` é um plugin de editor (commandlet `BPText`) que lista, exporta, importa, duplica,
+liga/desliga, remove nós e altera valores padrão a partir de um JSON, depois compila e salva.
+Uso: compile com `RunUAT BuildPlugin`, copie para `Plugins/BPTextTool` e rode
+`UnrealEditor-Cmd.exe Teste.uproject -run=BPText -EnablePlugins=BPTextTool -script=ops.json -log=result.log`.
+As operações estão descritas no topo de `BPTextCommandlet.h`. Feche o editor antes de rodar.
+
 Selecione o ator no mapa para configurar ApiBaseUrl e PlayerId.
 ApiBaseUrl padrão: http://127.0.0.1:3000 (sem barra final).
 Para testar, aperte Play e percorra o mapa até encostar na moeda.

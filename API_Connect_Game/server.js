@@ -47,7 +47,14 @@ function createApp(db) {
             res,
             'INSERT INTO player (id, nome, moedas) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE moedas = moedas + ?',
             [req.playerId, 'Jogador local', quantidade, quantidade],
-            () => res.json({ success: true })
+            // Relê o registro para confirmar que a coleta foi gravada no MySQL.
+            () => query(res, 'SELECT id, nome, moedas FROM player WHERE id = ?', [req.playerId], rows => {
+                if (!rows.length) return missing(res);
+                const player = rows[0];
+                const mensagem = `Coleta registrada no banco! +${quantidade} moeda(s). Total de ${player.nome} no MySQL: ${player.moedas}`;
+                console.log(`[coleta] player ${player.id}: +${quantidade} (total ${player.moedas})`);
+                res.json({ success: true, mensagem, quantidade, id: player.id, nome: player.nome, moedas: player.moedas });
+            })
         );
     });
     app.use((err, req, res, next) => {
